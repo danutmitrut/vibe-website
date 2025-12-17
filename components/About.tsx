@@ -113,9 +113,10 @@ export default function About() {
 
             {/*
               🔘 CTA BUTTON
+              - Link către pagina de rezervări
             */}
             <a
-              href="#contact"
+              href="/rezervari"
               className="inline-block px-8 py-4 bg-primary hover:bg-primary-dark text-white font-semibold rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl"
             >
               Programează o Vizită
