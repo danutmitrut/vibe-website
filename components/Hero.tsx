@@ -46,9 +46,9 @@ export default function Hero() {
           - text-white = text alb (vizibil pe fundal întunecat)
           - mb-6 = margin-bottom 24px
         */}
-        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
           Cafeaua Ta Preferată,{' '}
-          <span className="text-secondary">Perfect Preparată</span>
+          <span className="text-secondary drop-shadow-lg">Perfect Preparată</span>
         </h1>
 
         {/*
@@ -56,9 +56,10 @@ export default function Hero() {
           - text-xl = font 20px
           - md:text-2xl = pe desktop 24px
           - text-gray-100 = alb cu ușoară transparență
+          - drop-shadow-md = umbră text pentru contrast
           - mb-8 = spațiu sub paragraf
         */}
-        <p className="text-xl md:text-2xl text-gray-100 mb-8 max-w-2xl mx-auto">
+        <p className="text-xl md:text-2xl text-gray-100 mb-8 max-w-2xl mx-auto drop-shadow-md">
           Descoperă aromele autentice ale cafelei de specialitate într-un ambient modern și prietenos
         </p>
 

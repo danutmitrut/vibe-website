@@ -1,0 +1,314 @@
+/**
+ * ☕ MENU SECTION - Meniul cafenelei cu produse, prețuri, imagini
+ *
+ * Pentru cursanți:
+ * - Array de obiecte pentru fiecare produs
+ * - Map pentru a genera carduri dinamic
+ * - Categorii de produse (Espresso, Specialty, Vegan, etc.)
+ * - Imagini Unsplash pentru fiecare produs
+ */
+
+export default function Menu() {
+  /**
+   * 📋 DATE MENIU - Array cu toate produsele
+   * Fiecare obiect conține: nume, preț, descriere, ingrediente, imagine, categorie
+   */
+  const menuItems = [
+    // ☕ ESPRESSO CLASSICS
+    {
+      name: 'Espresso',
+      price: 12,
+      category: 'Espresso',
+      description: 'Shot dublu de espresso intens, aromat',
+      ingredients: '18g cafea, 36ml extract',
+      image: 'https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=600&auto=format&fit=crop',
+      vegan: true,
+    },
+    {
+      name: 'Espresso Lungo',
+      price: 13,
+      category: 'Espresso',
+      description: 'Espresso alungit cu apă fierbinte',
+      ingredients: '18g cafea, 60ml extract',
+      image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&auto=format&fit=crop',
+      vegan: true,
+    },
+    {
+      name: 'Americano',
+      price: 14,
+      category: 'Espresso',
+      description: 'Espresso diluat cu apă caldă',
+      ingredients: 'Espresso dublu + 120ml apă',
+      image: 'https://images.unsplash.com/photo-1532004491497-ba35c367d634?w=600&auto=format&fit=crop',
+      vegan: true,
+    },
+    {
+      name: 'Cappuccino',
+      price: 16,
+      category: 'Espresso',
+      description: 'Espresso cu lapte spumat cremos',
+      ingredients: 'Espresso + 150ml lapte integral',
+      image: 'https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=600&auto=format&fit=crop',
+      vegan: false,
+    },
+    {
+      name: 'Flat White',
+      price: 17,
+      category: 'Espresso',
+      description: 'Microfoam mătăsos peste espresso dublu',
+      ingredients: 'Espresso dublu + 180ml lapte microfoam',
+      image: 'https://images.unsplash.com/photo-1519477784903-2796c46dfc37?w=600&auto=format&fit=crop',
+      vegan: false,
+    },
+    {
+      name: 'Latte',
+      price: 17,
+      category: 'Espresso',
+      description: 'Espresso cu lapte abundent și spumă delicată',
+      ingredients: 'Espresso + 240ml lapte + spumă',
+      image: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&auto=format&fit=crop',
+      vegan: false,
+    },
+
+    // 🌟 SPECIALTY COFFEE
+    {
+      name: 'Caramel Macchiato',
+      price: 19,
+      category: 'Specialty',
+      description: 'Latte cu sirop caramel și topping caramel',
+      ingredients: 'Espresso + lapte + sirop caramel + sos caramel',
+      image: 'https://images.unsplash.com/photo-1599639957043-f3aa5c986398?w=600&auto=format&fit=crop',
+      vegan: false,
+    },
+    {
+      name: 'Mocha',
+      price: 19,
+      category: 'Specialty',
+      description: 'Ciocolată belgiană topită cu espresso și lapte',
+      ingredients: 'Espresso + ciocolată + lapte + frișcă',
+      image: 'https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=600&auto=format&fit=crop',
+      vegan: false,
+    },
+    {
+      name: 'Vanilla Latte',
+      price: 18,
+      category: 'Specialty',
+      description: 'Latte aromat cu vanilie Madagascar',
+      ingredients: 'Espresso + sirop vanilie + lapte',
+      image: 'https://images.unsplash.com/photo-1578374173703-12d52aa7cc5c?w=600&auto=format&fit=crop',
+      vegan: false,
+    },
+    {
+      name: 'Affogato',
+      price: 21,
+      category: 'Specialty',
+      description: 'Înghețată vanilie afogată în espresso',
+      ingredients: 'Espresso shot + bilă înghețată vanilie',
+      image: 'https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600&auto=format&fit=crop',
+      vegan: false,
+    },
+
+    // 🥛 VEGAN OPTIONS
+    {
+      name: 'Oat Milk Latte',
+      price: 18,
+      category: 'Vegan',
+      description: 'Latte cu lapte de ovăz Oatly Barista',
+      ingredients: 'Espresso + 240ml lapte ovăz',
+      image: 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=600&auto=format&fit=crop',
+      vegan: true,
+    },
+    {
+      name: 'Almond Cappuccino',
+      price: 17,
+      category: 'Vegan',
+      description: 'Cappuccino cu lapte de migdale',
+      ingredients: 'Espresso + lapte migdale spumat',
+      image: 'https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600&auto=format&fit=crop',
+      vegan: true,
+    },
+    {
+      name: 'Coconut Mocha',
+      price: 20,
+      category: 'Vegan',
+      description: 'Mocha vegan cu lapte de cocos și ciocolată neagră',
+      ingredients: 'Espresso + lapte cocos + ciocolată neagră 70%',
+      image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&auto=format&fit=crop',
+      vegan: true,
+    },
+    {
+      name: 'Soy Flat White',
+      price: 18,
+      category: 'Vegan',
+      description: 'Flat white cu lapte de soia',
+      ingredients: 'Espresso dublu + lapte soia microfoam',
+      image: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600&auto=format&fit=crop',
+      vegan: true,
+    },
+
+    // ❄️ COLD BREW & ICED
+    {
+      name: 'Cold Brew',
+      price: 16,
+      category: 'Cold',
+      description: 'Cafea cold brew 18h, aromă dulce naturală',
+      ingredients: '250ml cold brew + gheață',
+      image: 'https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=600&auto=format&fit=crop',
+      vegan: true,
+    },
+    {
+      name: 'Iced Latte',
+      price: 17,
+      category: 'Cold',
+      description: 'Latte răcoros perfect pentru vară',
+      ingredients: 'Espresso + lapte rece + gheață',
+      image: 'https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=600&auto=format&fit=crop',
+      vegan: false,
+    },
+    {
+      name: 'Nitro Cold Brew',
+      price: 19,
+      category: 'Cold',
+      description: 'Cold brew infuzat cu nitrogen, textură cremă',
+      ingredients: 'Cold brew + azot',
+      image: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&auto=format&fit=crop',
+      vegan: true,
+    },
+    {
+      name: 'Iced Caramel Macchiato',
+      price: 20,
+      category: 'Cold',
+      description: 'Macchiato răcoros cu caramel',
+      ingredients: 'Espresso + lapte rece + gheață + caramel',
+      image: 'https://images.unsplash.com/photo-1599639957043-f3aa5c986398?w=600&auto=format&fit=crop',
+      vegan: false,
+    },
+
+    // 🫖 ALTERNATIVE
+    {
+      name: 'Matcha Latte',
+      price: 18,
+      category: 'Alternative',
+      description: 'Matcha ceremonial japonez cu lapte',
+      ingredients: '3g matcha + 240ml lapte',
+      image: 'https://images.unsplash.com/photo-1536013564325-9a6c26a0c0e1?w=600&auto=format&fit=crop',
+      vegan: false,
+    },
+    {
+      name: 'Chai Latte',
+      price: 17,
+      category: 'Alternative',
+      description: 'Amestec de condimente indiene cu lapte',
+      ingredients: 'Chai concentrate + lapte spumat',
+      image: 'https://images.unsplash.com/photo-1578374173703-12d52aa7cc5c?w=600&auto=format&fit=crop',
+      vegan: false,
+    },
+  ];
+
+  // Grupează produsele pe categorii
+  const categories = ['Espresso', 'Specialty', 'Vegan', 'Cold', 'Alternative'];
+
+  return (
+    <section id="menu" className="py-20 px-6 bg-white">
+      <div className="max-w-7xl mx-auto">
+        {/* HEADER MENIU */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            Meniul <span className="text-primary">Nostru</span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Cafea de specialitate, preparată cu grijă de bariștii noștri certificați
+          </p>
+        </div>
+
+        {/* LOOP PRIN CATEGORII */}
+        {categories.map((category) => (
+          <div key={category} className="mb-16">
+            {/* TITLU CATEGORIE */}
+            <h3 className="text-3xl font-bold text-gray-900 mb-8 border-b-2 border-primary/20 pb-3">
+              {category === 'Espresso' && '☕ Espresso Classics'}
+              {category === 'Specialty' && '🌟 Specialty Coffee'}
+              {category === 'Vegan' && '🌱 Opțiuni Vegane'}
+              {category === 'Cold' && '❄️ Cold Brew & Iced'}
+              {category === 'Alternative' && '🫖 Băuturi Alternative'}
+            </h3>
+
+            {/* GRID PRODUSE */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {menuItems
+                .filter((item) => item.category === category)
+                .map((item, index) => (
+                  <div
+                    key={index}
+                    className="glass glass-hover rounded-2xl overflow-hidden"
+                  >
+                    {/* IMAGINE PRODUS */}
+                    <div className="relative h-48 overflow-hidden">
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                      />
+                      {/* BADGE VEGAN */}
+                      {item.vegan && (
+                        <div className="absolute top-3 right-3 bg-primary text-white px-3 py-1 rounded-full text-xs font-semibold">
+                          🌱 Vegan
+                        </div>
+                      )}
+                    </div>
+
+                    {/* CONTENT CARD */}
+                    <div className="p-6">
+                      {/* NUME + PREȚ */}
+                      <div className="flex justify-between items-start mb-3">
+                        <h4 className="text-xl font-bold text-gray-900">
+                          {item.name}
+                        </h4>
+                        <span className="text-2xl font-bold text-secondary">
+                          {item.price} lei
+                        </span>
+                      </div>
+
+                      {/* DESCRIERE */}
+                      <p className="text-gray-600 mb-3 text-sm leading-relaxed">
+                        {item.description}
+                      </p>
+
+                      {/* INGREDIENTE */}
+                      <div className="text-xs text-gray-500 bg-gray-50 rounded-lg p-3">
+                        <span className="font-semibold">Ingrediente:</span>{' '}
+                        {item.ingredients}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+            </div>
+          </div>
+        ))}
+
+        {/* INFO FOOTER MENIU */}
+        <div className="mt-16 text-center">
+          <div className="inline-block glass rounded-2xl p-8">
+            <p className="text-gray-700 mb-4">
+              <span className="font-semibold">💡 Personalizează-ți băutura:</span>
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-600">
+              <div>
+                <p className="font-semibold text-primary mb-1">Lapte alternativ</p>
+                <p>Ovăz, Migdale, Soia, Cocos (+2 lei)</p>
+              </div>
+              <div>
+                <p className="font-semibold text-primary mb-1">Extra shot</p>
+                <p>Espresso suplimentar (+5 lei)</p>
+              </div>
+              <div>
+                <p className="font-semibold text-primary mb-1">Siropuri</p>
+                <p>Vanilie, Caramel, Alune (+3 lei)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

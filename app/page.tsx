@@ -11,6 +11,7 @@
 // Importăm toate componentele create
 import Hero from '@/components/Hero';
 import Features from '@/components/Features';
+import Menu from '@/components/Menu';
 import About from '@/components/About';
 import Footer from '@/components/Footer';
 
@@ -27,12 +28,14 @@ export default function Home() {
         Ordinea componentelor:
         1. Hero (full screen) - Prima impresie
         2. Features (3 carduri) - Ce oferim
-        3. About (poveste + imagine) - Cine suntem
-        4. Footer (contact + social) - Info final
+        3. Menu (meniu complet cu produse) - Ce vindem
+        4. About (poveste + imagine) - Cine suntem
+        5. Footer (contact + social) - Info final
       */}
 
       <Hero />
       <Features />
+      <Menu />
       <About />
       <Footer />
 
