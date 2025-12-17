@@ -191,7 +191,7 @@ export default function Menu() {
       category: 'Alternative',
       description: 'Matcha ceremonial japonez cu lapte',
       ingredients: '3g matcha + 240ml lapte',
-      image: 'https://images.unsplash.com/photo-1536013564325-9a6c26a0c0e1?w=600&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1515823064-d6e0c04616a7?w=600&auto=format&fit=crop',
       vegan: false,
     },
     {
@@ -200,7 +200,7 @@ export default function Menu() {
       category: 'Alternative',
       description: 'Amestec de condimente indiene cu lapte',
       ingredients: 'Chai concentrate + lapte spumat',
-      image: 'https://images.unsplash.com/photo-1578374173703-12d52aa7cc5c?w=600&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=600&auto=format&fit=crop',
       vegan: false,
     },
   ];
@@ -243,11 +243,23 @@ export default function Menu() {
                     className="glass glass-hover rounded-2xl overflow-hidden"
                   >
                     {/* IMAGINE PRODUS */}
-                    <div className="relative h-48 overflow-hidden">
+                    <div className="relative h-48 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
                       <img
                         src={item.image}
                         alt={item.name}
                         className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                        onError={(e) => {
+                          // Fallback dacă imaginea nu se încarcă
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          const parent = target.parentElement;
+                          if (parent && !parent.querySelector('.fallback-icon')) {
+                            const fallback = document.createElement('div');
+                            fallback.className = 'fallback-icon absolute inset-0 flex items-center justify-center text-6xl';
+                            fallback.textContent = '☕';
+                            parent.appendChild(fallback);
+                          }
+                        }}
                       />
                       {/* BADGE VEGAN */}
                       {item.vegan && (
