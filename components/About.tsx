@@ -61,8 +61,8 @@ export default function About() {
               🎯 TITLU
             */}
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
-              Pasiunea Pentru Cafea,{' '}
-              <span className="text-primary">Din 2020</span>
+              Pasiunea pentru cafea,{' '}
+              <span className="text-primary">din 2020</span>
             </h2>
 
             {/*

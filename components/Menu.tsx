@@ -310,7 +310,7 @@ export default function Menu() {
         {/* HEADER MENIU */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Meniul <span className="text-primary">Nostru</span>
+            Meniul <span className="text-primary">nostru</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Cafea de specialitate, preparată cu grijă de bariștii noștri certificați

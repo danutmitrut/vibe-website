@@ -47,8 +47,8 @@ export default function Hero() {
           - mb-6 = margin-bottom 24px
         */}
         <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" style={{ textShadow: '0 2px 6px rgba(0,0,0,0.5)' }}>
-          Cafeaua Ta Preferată,{' '}
-          <span className="text-secondary" style={{ textShadow: '0 2px 6px rgba(0,0,0,0.5)' }}>Perfect Preparată</span>
+          Cafeaua ta preferată,{' '}
+          <span className="text-secondary" style={{ textShadow: '0 2px 6px rgba(0,0,0,0.5)' }}>perfect preparată</span>
         </h1>
 
         {/*

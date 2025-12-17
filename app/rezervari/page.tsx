@@ -83,7 +83,7 @@ export default function RezervarePage() {
           </div>
 
           <h1 className="text-4xl font-bold text-foreground mb-4">
-            Rezervare Confirmată!
+            Rezervare confirmată!
           </h1>
 
           <p className="text-xl text-gray-600 mb-8">
@@ -133,7 +133,7 @@ export default function RezervarePage() {
               }}
               className="px-8 py-4 bg-secondary hover:bg-secondary-dark text-white font-semibold rounded-full transition-all duration-300 hover:scale-105"
             >
-              Rezervare Nouă
+              Rezervare nouă
             </button>
           </div>
         </div>
@@ -151,7 +151,7 @@ export default function RezervarePage() {
             ← Înapoi
           </Link>
           <h1 className="text-5xl font-bold text-foreground mb-4">
-            Rezervă o <span className="text-primary">Masă</span>
+            Rezervă o <span className="text-primary">masă</span>
           </h1>
           <p className="text-xl text-gray-600">
             Alege data, ora și completează detaliile pentru rezervare
@@ -163,7 +163,7 @@ export default function RezervarePage() {
           <div className="mb-10">
             <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center">
               <span className="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm mr-3">1</span>
-              Selectează Data
+              Selectează data
             </h2>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -202,7 +202,7 @@ export default function RezervarePage() {
             <div className="mb-10">
               <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center">
                 <span className="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm mr-3">2</span>
-                Selectează Ora
+                Selectează ora
               </h2>
 
               <div className="grid grid-cols-4 md:grid-cols-7 gap-3">
@@ -233,14 +233,14 @@ export default function RezervarePage() {
             <div className="mb-8">
               <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center">
                 <span className="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm mr-3">3</span>
-                Detalii Rezervare
+                Detalii rezervare
               </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* NUME */}
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Nume Complet *
+                    Nume complet *
                   </label>
                   <input
                     type="text"
@@ -285,7 +285,7 @@ export default function RezervarePage() {
                 {/* NUMĂR PERSOANE */}
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Număr Persoane *
+                    Număr persoane *
                   </label>
                   <select
                     required
@@ -310,7 +310,7 @@ export default function RezervarePage() {
               type="submit"
               className="w-full py-4 bg-primary hover:bg-primary-dark text-white font-bold text-lg rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl"
             >
-              Confirmă Rezervarea
+              Confirmă rezervarea
             </button>
           )}
         </form>
