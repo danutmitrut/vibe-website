@@ -81,7 +81,7 @@ export default function Hero() {
 
           {/* Buton Secundar - Orange */}
           <a
-            href="#contact"
+            href="/locatie"
             className="px-8 py-4 bg-secondary hover:bg-secondary-dark text-white font-semibold rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl"
           >
             Vizitează-ne

@@ -61,7 +61,7 @@ export default function Menu() {
       category: 'Espresso',
       description: 'Microfoam mătăsos peste espresso dublu',
       ingredients: 'Espresso dublu + 180ml lapte microfoam',
-      image: 'https://images.unsplash.com/photo-1519477784903-2796c46dfc37?w=600&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1561882468-9110e03e0f78?w=600&auto=format&fit=crop',
       vegan: false,
     },
     {
@@ -105,7 +105,7 @@ export default function Menu() {
     {
       name: 'Affogato',
       price: 21,
-      category: 'Specialty',
+      category: 'Pastry',
       description: 'Înghețată vanilie afogată în espresso',
       ingredients: 'Espresso shot + bilă înghețată vanilie',
       image: 'https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600&auto=format&fit=crop',
@@ -157,7 +157,7 @@ export default function Menu() {
       category: 'Cold',
       description: 'Cafea cold brew 18h, aromă dulce naturală',
       ingredients: '250ml cold brew + gheață',
-      image: 'https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=600&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&auto=format&fit=crop',
       vegan: true,
     },
     {
@@ -166,7 +166,7 @@ export default function Menu() {
       category: 'Cold',
       description: 'Latte răcoros perfect pentru vară',
       ingredients: 'Espresso + lapte rece + gheață',
-      image: 'https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=600&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&auto=format&fit=crop',
       vegan: false,
     },
     {
@@ -242,7 +242,7 @@ export default function Menu() {
       category: 'Pastry',
       description: 'Cheesecake cremos cu topping fructe de pădure',
       ingredients: 'Brânză Philadelphia + biscuiți + fructe',
-      image: 'https://images.unsplash.com/photo-1533134486753-c833f0ed4866?w=600&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1524351199678-941a58a3df50?w=600&auto=format&fit=crop',
       vegan: false,
     },
     {
@@ -260,7 +260,7 @@ export default function Menu() {
       category: 'Pastry',
       description: 'Eclair frantuzesc cu cremă vanilie și glazură',
       ingredients: 'Aluat choux + cremă patisieră vanilie',
-      image: 'https://images.unsplash.com/photo-1612201142855-184c6e96b75d?w=600&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1603532648955-039310d9ed75?w=600&auto=format&fit=crop',
       vegan: false,
     },
     {
@@ -269,7 +269,7 @@ export default function Menu() {
       category: 'Pastry',
       description: 'Tiramisu autentic cu mascarpone și espresso',
       ingredients: 'Mascarpone + savoiardi + espresso + cacao',
-      image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=600&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=600&auto=format&fit=crop&q=80',
       vegan: false,
     },
     {
@@ -296,7 +296,7 @@ export default function Menu() {
       category: 'Pastry',
       description: 'Rulou cu scorțișoară și glazură cream cheese',
       ingredients: 'Aluat dospit + scorțișoară + glazură',
-      image: 'https://images.unsplash.com/photo-1626178793926-22b28830aa30?w=600&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1509365465985-25d11c17e812?w=600&auto=format&fit=crop',
       vegan: false,
     },
   ];
