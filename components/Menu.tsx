@@ -207,10 +207,102 @@ export default function Menu() {
       image: 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=600&auto=format&fit=crop',
       vegan: false,
     },
+
+    // 🥐 PATISERIE
+    {
+      name: 'Croissant Clasic',
+      price: 8,
+      category: 'Pastry',
+      description: 'Croissant frantuzesc cu unt, fraged și aromat',
+      ingredients: 'Făină, unt 82% grăsime, ou, drojdie',
+      image: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&auto=format&fit=crop',
+      vegan: false,
+    },
+    {
+      name: 'Croissant cu Ciocolată',
+      price: 10,
+      category: 'Pastry',
+      description: 'Croissant cu ciocolată belgiană neagră',
+      ingredients: 'Croissant + ciocolată 70% cacao',
+      image: 'https://images.unsplash.com/photo-1530610476181-d83430b64dcd?w=600&auto=format&fit=crop',
+      vegan: false,
+    },
+    {
+      name: 'Croissant cu Migdale',
+      price: 12,
+      category: 'Pastry',
+      description: 'Croissant umplut cu cremă de migdale și glazură',
+      ingredients: 'Croissant + cremă migdale + fulgi migdale',
+      image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&auto=format&fit=crop',
+      vegan: false,
+    },
+    {
+      name: 'Cheesecake New York',
+      price: 16,
+      category: 'Pastry',
+      description: 'Cheesecake cremos cu topping fructe de pădure',
+      ingredients: 'Brânză Philadelphia + biscuiți + fructe',
+      image: 'https://images.unsplash.com/photo-1533134486753-c833f0ed4866?w=600&auto=format&fit=crop',
+      vegan: false,
+    },
+    {
+      name: 'Brownie cu Nuci',
+      price: 13,
+      category: 'Pastry',
+      description: 'Brownie ciocolătos cu nuci caramelizate',
+      ingredients: 'Ciocolată neagră + nuci + unt + ou',
+      image: 'https://images.unsplash.com/photo-1607920591413-4ec007e70023?w=600&auto=format&fit=crop',
+      vegan: false,
+    },
+    {
+      name: 'Eclair cu Vanilie',
+      price: 14,
+      category: 'Pastry',
+      description: 'Eclair frantuzesc cu cremă vanilie și glazură',
+      ingredients: 'Aluat choux + cremă patisieră vanilie',
+      image: 'https://images.unsplash.com/photo-1612201142855-184c6e96b75d?w=600&auto=format&fit=crop',
+      vegan: false,
+    },
+    {
+      name: 'Tiramisu Clasic',
+      price: 15,
+      category: 'Pastry',
+      description: 'Tiramisu autentic cu mascarpone și espresso',
+      ingredients: 'Mascarpone + savoiardi + espresso + cacao',
+      image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=600&auto=format&fit=crop',
+      vegan: false,
+    },
+    {
+      name: 'Tartaletă cu Lămâie',
+      price: 13,
+      category: 'Pastry',
+      description: 'Tartaletă cu cremă acidulată de lămâie',
+      ingredients: 'Aluat fraged + lemon curd + bezea',
+      image: 'https://images.unsplash.com/photo-1519915028121-7d3463d20b13?w=600&auto=format&fit=crop',
+      vegan: false,
+    },
+    {
+      name: 'Macaron Asortate',
+      price: 18,
+      category: 'Pastry',
+      description: 'Set 6 macarons cu arome variate',
+      ingredients: 'Migdale + zahăr + umpluturi diverse',
+      image: 'https://images.unsplash.com/photo-1569864358642-9d1684040f43?w=600&auto=format&fit=crop',
+      vegan: false,
+    },
+    {
+      name: 'Cinnamon Roll',
+      price: 11,
+      category: 'Pastry',
+      description: 'Rulou cu scorțișoară și glazură cream cheese',
+      ingredients: 'Aluat dospit + scorțișoară + glazură',
+      image: 'https://images.unsplash.com/photo-1626178793926-22b28830aa30?w=600&auto=format&fit=crop',
+      vegan: false,
+    },
   ];
 
   // Grupează produsele pe categorii
-  const categories = ['Espresso', 'Specialty', 'Vegan', 'Cold', 'Alternative'];
+  const categories = ['Espresso', 'Specialty', 'Vegan', 'Cold', 'Alternative', 'Pastry'];
 
   return (
     <section id="menu" className="py-20 px-6 bg-white">
@@ -235,6 +327,7 @@ export default function Menu() {
               {category === 'Vegan' && '🌱 Opțiuni Vegane'}
               {category === 'Cold' && '❄️ Cold Brew & Iced'}
               {category === 'Alternative' && '🫖 Băuturi Alternative'}
+              {category === 'Pastry' && '🥐 Patiserie Artizanală'}
             </h3>
 
             {/* GRID PRODUSE */}
