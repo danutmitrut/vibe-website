@@ -46,9 +46,9 @@ export default function Hero() {
           - text-white = text alb (vizibil pe fundal întunecat)
           - mb-6 = margin-bottom 24px
         */}
-        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" style={{ textShadow: '0 4px 12px rgba(0,0,0,0.8), 0 2px 4px rgba(0,0,0,0.6)' }}>
+        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" style={{ textShadow: '0 2px 6px rgba(0,0,0,0.5)' }}>
           Cafeaua Ta Preferată,{' '}
-          <span className="text-secondary" style={{ textShadow: '0 4px 12px rgba(0,0,0,0.8), 0 2px 4px rgba(0,0,0,0.6)' }}>Perfect Preparată</span>
+          <span className="text-secondary" style={{ textShadow: '0 2px 6px rgba(0,0,0,0.5)' }}>Perfect Preparată</span>
         </h1>
 
         {/*
