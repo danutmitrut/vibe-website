@@ -25,8 +25,8 @@ export default function Hero() {
           backgroundPosition: 'center',
         }}
       >
-        {/* Overlay întunecat pentru ca textul să fie vizibil */}
-        <div className="absolute inset-0 bg-black/40"></div>
+        {/* Overlay mai întunecat pentru contrast mai bun */}
+        <div className="absolute inset-0 bg-black/60"></div>
       </div>
 
       {/*
@@ -46,20 +46,20 @@ export default function Hero() {
           - text-white = text alb (vizibil pe fundal întunecat)
           - mb-6 = margin-bottom 24px
         */}
-        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
+        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" style={{ textShadow: '0 4px 12px rgba(0,0,0,0.8), 0 2px 4px rgba(0,0,0,0.6)' }}>
           Cafeaua Ta Preferată,{' '}
-          <span className="text-secondary drop-shadow-lg">Perfect Preparată</span>
+          <span className="text-secondary" style={{ textShadow: '0 4px 12px rgba(0,0,0,0.8), 0 2px 4px rgba(0,0,0,0.6)' }}>Perfect Preparată</span>
         </h1>
 
         {/*
           📄 SUBTITLU
           - text-xl = font 20px
           - md:text-2xl = pe desktop 24px
-          - text-gray-100 = alb cu ușoară transparență
-          - drop-shadow-md = umbră text pentru contrast
+          - text-white = text complet alb (mai mult contrast)
+          - textShadow = umbră customizată neagră puternică
           - mb-8 = spațiu sub paragraf
         */}
-        <p className="text-xl md:text-2xl text-gray-100 mb-8 max-w-2xl mx-auto drop-shadow-md">
+        <p className="text-xl md:text-2xl text-white mb-8 max-w-2xl mx-auto font-medium" style={{ textShadow: '0 3px 8px rgba(0,0,0,0.8), 0 1px 3px rgba(0,0,0,0.6)' }}>
           Descoperă aromele autentice ale cafelei de specialitate într-un ambient modern și prietenos
         </p>
 
