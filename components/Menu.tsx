@@ -1,7 +1,11 @@
+'use client';
+
 /**
  * ☕ MENU SECTION - Meniul cafenelei cu produse, prețuri, imagini
  *
  * Pentru cursanți:
+ * - 'use client' = Această componentă rulează pe client (browser)
+ * - Necesară pentru event handlers (onClick, onError, etc.)
  * - Array de obiecte pentru fiecare produs
  * - Map pentru a genera carduri dinamic
  * - Categorii de produse (Espresso, Specialty, Vegan, etc.)
