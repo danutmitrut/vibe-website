@@ -99,7 +99,7 @@ export default function Menu() {
       category: 'Specialty',
       description: 'Latte aromat cu vanilie Madagascar',
       ingredients: 'Espresso + sirop vanilie + lapte',
-      image: 'https://images.unsplash.com/photo-1578374173703-12d52aa7cc5c?w=600&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1545665225-b23b99e4d45e?w=600&auto=format&fit=crop',
       vegan: false,
     },
     {
