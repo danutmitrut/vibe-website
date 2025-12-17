@@ -166,7 +166,7 @@ export default function Menu() {
       category: 'Cold',
       description: 'Latte răcoros perfect pentru vară',
       ingredients: 'Espresso + lapte rece + gheață',
-      image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=600&auto=format&fit=crop',
       vegan: false,
     },
     {
