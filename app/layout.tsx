@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import ChatWidget from "@/components/ChatWidget";
+import Preloader from "@/components/Preloader";
+import SmoothScroll from "@/components/SmoothScroll";
 
 // 🎨 TIPOGRAFIE MODERNĂ
 // Playfair Display - Serif elegant pentru titluri
@@ -33,7 +35,25 @@ export const metadata: Metadata = {
     title: "Vibe Coffee - Cafea de Specialitate",
     description: "Locul perfect pentru cafeaua ta zilnică",
     type: "website",
+    locale: "ro_RO",
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({
@@ -46,6 +66,8 @@ export default function RootLayout({
       <body
         className={`${playfair.variable} ${inter.variable} antialiased`}
       >
+        <Preloader />
+        <SmoothScroll />
         {children}
         <ChatWidget />
       </body>

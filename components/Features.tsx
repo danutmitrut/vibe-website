@@ -1,14 +1,39 @@
 /**
  * ⭐ FEATURES SECTION - Bento Grid Layout (Modern Asimetric)
- * MODERNIZAT: Layout inspirat Apple cu card mare + 2 mici + scroll animations
+ * MODERNIZAT: Layout inspirat Apple cu card mare + 2 mici + scroll animations + parallax
  */
 
 'use client';
 
 import { useScrollAnimation } from '@/lib/hooks/useScrollAnimation';
+import { useEffect, useState } from 'react';
 
 export default function Features() {
   const { elementRef, isVisible } = useScrollAnimation(0.15);
+  const [parallaxOffsets, setParallaxOffsets] = useState([0, 0, 0]);
+
+  // Efect parallax diferit pentru fiecare card
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = window.scrollY;
+      const element = elementRef.current;
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        const elementTop = rect.top + scrolled;
+        const baseOffset = scrolled - elementTop;
+
+        // Offset-uri diferite pentru fiecare card (parallax multi-layer)
+        setParallaxOffsets([
+          baseOffset * 0.2,  // Card mare - mai lent
+          baseOffset * 0.15, // Card mic 1 - și mai lent
+          baseOffset * 0.25  // Card mic 2 - puțin mai rapid
+        ]);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [elementRef]);
   const features = [
     {
       icon: '☕',
@@ -63,6 +88,10 @@ export default function Features() {
                 src={features[0].image}
                 alt={features[0].title}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                style={{
+                  transform: `translateY(${parallaxOffsets[0]}px) scale(1.1)`,
+                  transition: 'transform 0.1s ease-out'
+                }}
               />
               <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-sm w-20 h-20 rounded-2xl flex items-center justify-center text-5xl shadow-xl">
                 {features[0].icon}
@@ -96,6 +125,10 @@ export default function Features() {
                   src={features[1].image}
                   alt={features[1].title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  style={{
+                    transform: `translateY(${parallaxOffsets[1]}px) scale(1.1)`,
+                    transition: 'transform 0.1s ease-out'
+                  }}
                 />
                 <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm w-16 h-16 rounded-xl flex items-center justify-center text-4xl shadow-lg">
                   {features[1].icon}
@@ -127,6 +160,10 @@ export default function Features() {
                   src={features[2].image}
                   alt={features[2].title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  style={{
+                    transform: `translateY(${parallaxOffsets[2]}px) scale(1.1)`,
+                    transition: 'transform 0.1s ease-out'
+                  }}
                 />
                 <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm w-16 h-16 rounded-xl flex items-center justify-center text-4xl shadow-lg">
                   {features[2].icon}

@@ -1,18 +1,14 @@
 'use client';
 
+import { useState, useEffect } from 'react';
+
 /**
  * ☕ MENU SECTION - Meniul cafenelei cu produse, prețuri, imagini
- *
- * Pentru cursanți:
- * - 'use client' = Această componentă rulează pe client (browser)
- * - Necesară pentru event handlers (onClick, onError, etc.)
- * - Array de obiecte pentru fiecare produs
- * - Map pentru a genera carduri dinamic
- * - Categorii de produse (Espresso, Specialty, Vegan, etc.)
- * - Imagini Unsplash pentru fiecare produs
+ * MODERNIZAT: Tab-uri interactive sticky cu auto-highlight la scroll
  */
 
 export default function Menu() {
+  const [activeCategory, setActiveCategory] = useState('Espresso');
   /**
    * 📋 DATE MENIU - Array cu toate produsele
    * Fiecare obiect conține: nume, preț, descriere, ingrediente, imagine, categorie
@@ -304,6 +300,52 @@ export default function Menu() {
   // Grupează produsele pe categorii
   const categories = ['Espresso', 'Specialty', 'Vegan', 'Cold', 'Alternative', 'Pastry'];
 
+  const categoryLabels: Record<string, string> = {
+    'Espresso': '☕ Espresso',
+    'Specialty': '🌟 Specialty',
+    'Vegan': '🌱 Vegan',
+    'Cold': '❄️ Cold',
+    'Alternative': '🫖 Alternative',
+    'Pastry': '🥐 Patiserie'
+  };
+
+  // Scroll to category
+  const scrollToCategory = (category: string) => {
+    setActiveCategory(category);
+    const element = document.getElementById(`category-${category}`);
+    if (element) {
+      const offset = 180; // Offset pentru sticky nav + tabs
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({
+        top: elementPosition - offset,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  // Auto-highlight tab la scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const categoryElements = categories.map(cat => ({
+        category: cat,
+        element: document.getElementById(`category-${cat}`)
+      }));
+
+      for (const { category, element } of categoryElements) {
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 250 && rect.bottom >= 250) {
+            setActiveCategory(category);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <section id="menu" className="py-20 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
@@ -317,9 +359,30 @@ export default function Menu() {
           </p>
         </div>
 
+        {/* 📌 TAB-URI STICKY CU INDICATOR PILL ANIMAT */}
+        <div className="sticky top-20 z-40 mb-12 -mx-6 px-6 py-4 bg-white/95 backdrop-blur-md shadow-md">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => scrollToCategory(category)}
+                  className={`px-6 py-3 rounded-full font-semibold whitespace-nowrap transition-all duration-300 ${
+                    activeCategory === category
+                      ? 'bg-primary text-white shadow-lg scale-105'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
+                >
+                  {categoryLabels[category]}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
         {/* LOOP PRIN CATEGORII */}
         {categories.map((category) => (
-          <div key={category} className="mb-16">
+          <div key={category} id={`category-${category}`} className="mb-16 scroll-mt-48">
             {/* TITLU CATEGORIE */}
             <h3 className="text-3xl font-bold text-gray-900 mb-8 border-b-2 border-primary/20 pb-3">
               {category === 'Espresso' && '☕ Espresso Classics'}

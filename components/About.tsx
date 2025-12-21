@@ -1,20 +1,39 @@
 /**
  * 📖 ABOUT SECTION - Cu scroll animations
- * MODERNIZAT: Intersection Observer pentru fade-in effects
+ * MODERNIZAT: Intersection Observer + Parallax effect
  */
 
 'use client';
 
 import { useScrollAnimation } from '@/lib/hooks/useScrollAnimation';
+import { useEffect, useState } from 'react';
 
 export default function About() {
   const { elementRef, isVisible } = useScrollAnimation(0.2);
+  const [parallaxOffset, setParallaxOffset] = useState(0);
+
+  // Efect parallax pe imagine
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = window.scrollY;
+      const element = elementRef.current;
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        const elementTop = rect.top + scrolled;
+        const offset = (scrolled - elementTop) * 0.3; // Factor de parallax
+        setParallaxOffset(offset);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [elementRef]);
 
   return (
     <section className="py-20 px-6 bg-white/50" ref={elementRef}>
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          {/* IMAGINE - Slide in from left */}
+          {/* IMAGINE - Slide in from left + Parallax */}
           <div
             className={`order-2 md:order-1 transition-all duration-1000 ${
               isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
@@ -25,6 +44,10 @@ export default function About() {
                 src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=800&auto=format&fit=crop"
                 alt="Interior cafenea modern și primitor"
                 className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700"
+                style={{
+                  transform: `translateY(${parallaxOffset}px)`,
+                  transition: 'transform 0.1s ease-out'
+                }}
               />
             </div>
           </div>

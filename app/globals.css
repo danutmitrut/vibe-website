@@ -237,9 +237,20 @@ button:active, .btn:active {
   }
 }
 
-/* Smooth scroll behavior */
-html {
-  scroll-behavior: smooth;
+/* Smooth scroll behavior - dezactivat pentru Lenis */
+html.lenis {
+  height: auto;
+}
+
+html.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+/* Performanță: GPU acceleration pentru animații */
+.gpu-accelerate {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 /* Selection color */
@@ -251,4 +262,14 @@ html {
 ::-moz-selection {
   background-color: var(--primary);
   color: white;
+}
+
+/* Hide scrollbar pentru tab-uri */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
