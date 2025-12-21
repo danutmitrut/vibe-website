@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* 🌙 DARK MODE - Class Strategy (not media query) */
+@variant dark (&:where(.dark, .dark *));
+
 /*
   🎨 VIBE COFFEE SHOP - MODERN DESIGN SYSTEM
   - Tipografie: Playfair Display (titluri) + Inter (text)
