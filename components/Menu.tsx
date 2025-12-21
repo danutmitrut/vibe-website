@@ -347,20 +347,20 @@ export default function Menu() {
   }, []);
 
   return (
-    <section id="menu" className="py-20 px-6 bg-white">
+    <section id="menu" className="py-20 px-6 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto">
         {/* HEADER MENIU */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Meniul <span className="text-primary">nostru</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Cafea de specialitate, preparată cu grijă de bariștii noștri certificați
           </p>
         </div>
 
         {/* 📌 TAB-URI STICKY CU INDICATOR PILL ANIMAT */}
-        <div className="sticky top-20 z-40 mb-12 -mx-6 px-6 py-4 bg-white/95 backdrop-blur-md shadow-md">
+        <div className="sticky top-20 z-40 mb-12 -mx-6 px-6 py-4 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-md">
           <div className="max-w-7xl mx-auto">
             <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
               {categories.map((category) => (
@@ -370,7 +370,7 @@ export default function Menu() {
                   className={`px-6 py-3 rounded-full font-semibold whitespace-nowrap transition-all duration-300 ${
                     activeCategory === category
                       ? 'bg-primary text-white shadow-lg scale-105'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 hover:dark:bg-gray-600'
                   }`}
                 >
                   {categoryLabels[category]}
@@ -384,7 +384,7 @@ export default function Menu() {
         {categories.map((category) => (
           <div key={category} id={`category-${category}`} className="mb-16 scroll-mt-48">
             {/* TITLU CATEGORIE */}
-            <h3 className="text-3xl font-bold text-gray-900 mb-8 border-b-2 border-primary/20 pb-3">
+            <h3 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-8 border-b-2 border-primary/20 dark:border-primary/30 pb-3">
               {category === 'Espresso' && '☕ Espresso Classics'}
               {category === 'Specialty' && '🌟 Specialty Coffee'}
               {category === 'Vegan' && '🌱 Opțiuni Vegane'}
@@ -403,7 +403,7 @@ export default function Menu() {
                     className="glass glass-hover rounded-2xl overflow-hidden"
                   >
                     {/* IMAGINE PRODUS */}
-                    <div className="relative h-48 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
+                    <div className="relative h-48 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600">
                       <img
                         src={item.image}
                         alt={item.name}
@@ -433,7 +433,7 @@ export default function Menu() {
                     <div className="p-6">
                       {/* NUME + PREȚ */}
                       <div className="flex justify-between items-start mb-3">
-                        <h4 className="text-xl font-bold text-gray-900">
+                        <h4 className="text-xl font-bold text-gray-900 dark:text-gray-100">
                           {item.name}
                         </h4>
                         <span className="text-2xl font-bold text-secondary">
@@ -442,12 +442,12 @@ export default function Menu() {
                       </div>
 
                       {/* DESCRIERE */}
-                      <p className="text-gray-600 mb-3 text-sm leading-relaxed">
+                      <p className="text-gray-600 dark:text-gray-300 mb-3 text-sm leading-relaxed">
                         {item.description}
                       </p>
 
                       {/* INGREDIENTE */}
-                      <div className="text-xs text-gray-500 bg-gray-50 rounded-lg p-3">
+                      <div className="text-xs text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-700 rounded-lg p-3">
                         <span className="font-semibold">Ingrediente:</span>{' '}
                         {item.ingredients}
                       </div>
@@ -461,10 +461,10 @@ export default function Menu() {
         {/* INFO FOOTER MENIU */}
         <div className="mt-16 text-center">
           <div className="inline-block glass rounded-2xl p-8">
-            <p className="text-gray-700 mb-4">
+            <p className="text-gray-700 dark:text-gray-300 mb-4">
               <span className="font-semibold">💡 Personalizează-ți băutura:</span>
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-600">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-600 dark:text-gray-400">
               <div>
                 <p className="font-semibold text-primary mb-1">Lapte alternativ</p>
                 <p>Ovăz, Migdale, Soia, Cocos (+2 lei)</p>
