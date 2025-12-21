@@ -17,15 +17,26 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* 🖼️ BACKGROUND IMAGE - Full Screen */}
-      <div
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1920&auto=format&fit=crop)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
+      {/* 🎬 BACKGROUND VIDEO - Full Screen Loop */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source
+            src="https://videos.pexels.com/video-files/3843/3843-hd_1920_1080_30fps.mp4"
+            type="video/mp4"
+          />
+          {/* Fallback image pentru browsere care nu suportă video */}
+          <img
+            src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1920&auto=format&fit=crop"
+            alt="Coffee background"
+            className="w-full h-full object-cover"
+          />
+        </video>
         {/* Overlay semi-transparent pentru contrast */}
         <div className="absolute inset-0 bg-black/50"></div>
       </div>
