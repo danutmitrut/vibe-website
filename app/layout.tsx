@@ -1,16 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import ChatWidget from "@/components/ChatWidget";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// 🎨 TIPOGRAFIE MODERNĂ
+// Playfair Display - Serif elegant pentru titluri
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
+  weight: ["400", "700", "900"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+// Inter - Sans-serif curat pentru text
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["300", "400", "600", "700"],
+  display: "swap",
 });
 
 /**
@@ -35,9 +42,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ro">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${playfair.variable} ${inter.variable} antialiased`}
       >
         {children}
         <ChatWidget />

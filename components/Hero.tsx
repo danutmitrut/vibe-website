@@ -1,22 +1,23 @@
 /**
  * 🎯 HERO SECTION - Prima secțiune pe care o vede utilizatorul
- *
- * Pentru cursanți:
- * - Acesta este un React Component (o funcție care returnează HTML/JSX)
- * - JSX = JavaScript + XML (HTML în JavaScript)
- * - className = cum adaugăm CSS în React (în loc de "class")
- * - Tailwind CSS = framework CSS cu clase predefinite
+ * MODERNIZAT: Full-screen cu animații fade-in
  */
 
+'use client';
+
+import { useEffect, useState } from 'react';
+
 export default function Hero() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Declanșează animația după mount
+    setIsVisible(true);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/*
-        🖼️ BACKGROUND IMAGE
-        - Folosim Unsplash pentru imagini gratuite, HD
-        - ?w=1920 = lățime 1920px pentru calitate bună
-        - ?auto=format = Unsplash optimizează automat imaginea
-      */}
+      {/* 🖼️ BACKGROUND IMAGE - Full Screen */}
       <div
         className="absolute inset-0 z-0"
         style={{
@@ -25,78 +26,68 @@ export default function Hero() {
           backgroundPosition: 'center',
         }}
       >
-        {/* Overlay mai întunecat pentru contrast mai bun */}
-        <div className="absolute inset-0 bg-black/60"></div>
+        {/* Overlay semi-transparent pentru contrast */}
+        <div className="absolute inset-0 bg-black/50"></div>
       </div>
 
-      {/*
-        🪟 GLASSMORPHISM CARD
-        - glass = clasa custom din globals.css (backdrop-filter blur)
-        - relative z-10 = pune cardul deasupra imaginii de fundal
-        - max-w-4xl = lățime maximă pentru lizibilitate
-        - mx-auto = centrat orizontal (margin auto left+right)
-        - px-6 = padding orizontal (24px)
-      */}
-      <div className="glass relative z-10 max-w-4xl mx-auto px-6 py-16 md:px-12 md:py-20 rounded-3xl text-center">
-        {/*
-          📝 TITLU PRINCIPAL
-          - text-5xl = font foarte mare (48px)
-          - md:text-7xl = pe ecrane medii/mari (768px+) devine 72px
-          - font-bold = greutate font 700
-          - text-white = text alb (vizibil pe fundal întunecat)
-          - mb-6 = margin-bottom 24px
-        */}
-        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" style={{ textShadow: '0 2px 6px rgba(0,0,0,0.5)' }}>
+      {/* 🎨 CONTENT - Direct pe fundal, fără glassmorphism card */}
+      <div
+        className={`relative z-10 max-w-6xl mx-auto px-6 py-16 md:px-12 text-center transition-all duration-1000 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+        }`}
+      >
+        {/* 📝 TITLU PRINCIPAL - Mărit la 96px (6rem) */}
+        <h1
+          className="text-6xl md:text-8xl lg:text-9xl font-bold text-white mb-6 leading-tight"
+          style={{
+            textShadow: '0 4px 12px rgba(0,0,0,0.8)',
+            animation: isVisible ? 'fadeInUp 1s ease-out' : 'none'
+          }}
+        >
           Cafeaua ta preferată,{' '}
-          <span className="text-secondary" style={{ textShadow: '0 2px 6px rgba(0,0,0,0.5)' }}>perfect preparată</span>
+          <span className="text-secondary block mt-2" style={{ textShadow: '0 4px 12px rgba(0,0,0,0.8)' }}>
+            perfect preparată
+          </span>
         </h1>
 
-        {/*
-          📄 SUBTITLU
-          - text-xl = font 20px
-          - md:text-2xl = pe desktop 24px
-          - text-white = text complet alb (mai mult contrast)
-          - textShadow = umbră customizată neagră puternică
-          - mb-8 = spațiu sub paragraf
-        */}
-        <p className="text-xl md:text-2xl text-white mb-8 max-w-2xl mx-auto font-medium" style={{ textShadow: '0 3px 8px rgba(0,0,0,0.8), 0 1px 3px rgba(0,0,0,0.6)' }}>
+        {/* 📄 SUBTITLU */}
+        <p
+          className="text-xl md:text-3xl text-white/90 mb-10 max-w-3xl mx-auto font-light leading-relaxed"
+          style={{
+            textShadow: '0 3px 8px rgba(0,0,0,0.8)',
+            animation: isVisible ? 'fadeInUp 1s ease-out 0.2s both' : 'none'
+          }}
+        >
           Descoperă aromele autentice ale cafelei de specialitate într-un ambient modern și prietenos
         </p>
 
-        {/*
-          🔘 CTA BUTTONS (Call-to-Action)
-          - flex = display flex pentru alinierea butoanelor
-          - flex-col = vertical pe mobile
-          - sm:flex-row = orizontal pe ecrane mici+ (640px+)
-          - gap-4 = spațiu între butoane (16px)
-        */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          {/* Buton Principal - Teal */}
+        {/* 🔘 CTA BUTTONS */}
+        <div
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          style={{
+            animation: isVisible ? 'fadeInUp 1s ease-out 0.4s both' : 'none'
+          }}
+        >
           <a
             href="#menu"
-            className="px-8 py-4 bg-primary hover:bg-primary-dark text-white font-semibold rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl"
+            className="px-10 py-5 bg-primary hover:bg-primary-dark text-white text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl"
           >
             Vezi Meniul
           </a>
 
-          {/* Buton Secundar - Orange */}
           <a
             href="/locatie"
-            className="px-8 py-4 bg-secondary hover:bg-secondary-dark text-white font-semibold rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl"
+            className="px-10 py-5 bg-secondary hover:bg-secondary-dark text-white text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl"
           >
             Vizitează-ne
           </a>
         </div>
       </div>
 
-      {/*
-        ⬇️ SCROLL INDICATOR
-        - absolute bottom-8 = fixat la 32px de jos
-        - animate-bounce = animație CSS predefinită Tailwind (mișcare sus-jos)
-      */}
+      {/* ⬇️ SCROLL INDICATOR */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
         <svg
-          className="w-6 h-6 text-white"
+          className="w-6 h-6 text-white/80"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -109,6 +100,20 @@ export default function Hero() {
           />
         </svg>
       </div>
+
+      {/* 🎬 KEYFRAMES pentru animații */}
+      <style jsx>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </section>
   );
 }

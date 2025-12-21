@@ -1,19 +1,9 @@
 /**
- * ⭐ FEATURES SECTION - Prezintă 3 avantaje/caracteristici principale
- *
- * Pentru cursanți:
- * - Folosim Array.map() pentru a genera carduri dintr-o listă de date
- * - Acest pattern (date + map) este ESENȚIAL în React
- * - features = array cu obiecte (fiecare obiect = un card)
+ * ⭐ FEATURES SECTION - Bento Grid Layout (Modern Asimetric)
+ * MODERNIZAT: Layout inspirat Apple cu card mare + 2 mici
  */
 
 export default function Features() {
-  /**
-   * 📊 DATE PENTRU CARDURI
-   * - icon = emoji (poți folosi și SVG icons)
-   * - title = titlu scurt
-   * - description = text explicativ
-   */
   const features = [
     {
       icon: '☕',
@@ -21,6 +11,7 @@ export default function Features() {
       description:
         'Boabe proaspăt prăjite din plantații selectate, pentru aroma perfectă în fiecare ceașcă',
       image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&auto=format&fit=crop',
+      color: '#F5E6D3', // Bej cald
     },
     {
       icon: '🥐',
@@ -28,6 +19,7 @@ export default function Features() {
       description:
         'Deserturi și produse de patiserie pregătite zilnic cu ingrediente premium',
       image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&auto=format&fit=crop',
+      color: '#FFF8E7', // Crem
     },
     {
       icon: '🪴',
@@ -35,24 +27,16 @@ export default function Features() {
       description:
         'Spațiu modern și primitor, perfect pentru lucru, studiu sau întâlniri',
       image: 'https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=800&auto=format&fit=crop',
+      color: '#D4A574', // Maro deschis
     },
   ];
 
   return (
-    <section className="py-20 px-6">
-      {/*
-        📦 CONTAINER
-        - max-w-7xl = lățime maximă 80rem (1280px)
-        - mx-auto = centrat orizontal
-      */}
+    <section className="py-24 px-6 bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-7xl mx-auto">
-        {/*
-          📝 TITLU SECȚIUNE
-          - text-center = text centrat
-          - mb-16 = margin-bottom 64px (spațiu până la carduri)
-        */}
+        {/* 📝 TITLU SECȚIUNE */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-4">
             De ce <span className="text-primary">Vibe Coffee</span>?
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -60,72 +44,88 @@ export default function Features() {
           </p>
         </div>
 
-        {/*
-          🎴 GRID CARDURI
-          - grid = CSS Grid Layout
-          - grid-cols-1 = 1 coloană pe mobile
-          - md:grid-cols-3 = 3 coloane pe desktop (768px+)
-          - gap-8 = spațiu între carduri (32px)
-        */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/*
-            🔄 MAP PRIN ARRAY
-            - features.map() = pentru fiecare element din array, creează un card
-            - feature = obiectul curent din iterație
-            - index = poziția în array (0, 1, 2)
-            - key={index} = React are nevoie de "key" unic pentru fiecare element în listă
-          */}
-          {features.map((feature, index) => (
+        {/* 🎨 BENTO GRID - Card mare stânga + 2 mici dreapta */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-auto md:h-[600px]">
+          {/* 🔲 CARD MARE - Stânga (prima poziție) */}
+          <div
+            className="rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group"
+            style={{ backgroundColor: features[0].color }}
+          >
+            <div className="relative h-64 md:h-1/2 overflow-hidden">
+              <img
+                src={features[0].image}
+                alt={features[0].title}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-sm w-20 h-20 rounded-2xl flex items-center justify-center text-5xl shadow-xl">
+                {features[0].icon}
+              </div>
+            </div>
+
+            <div className="p-8 md:p-10 h-64 md:h-1/2 flex flex-col justify-center">
+              <h3 className="text-4xl font-bold text-gray-900 mb-4">
+                {features[0].title}
+              </h3>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                {features[0].description}
+              </p>
+            </div>
+          </div>
+
+          {/* 📦 CONTAINER DREAPTA - 2 carduri stivuite */}
+          <div className="flex flex-col gap-6">
+            {/* 🔳 CARD MIC 1 - Sus dreapta */}
             <div
-              key={index}
-              className="glass glass-hover rounded-2xl overflow-hidden"
+              className="rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group flex-1"
+              style={{ backgroundColor: features[1].color }}
             >
-              {/*
-                🖼️ IMAGINE FEATURE
-                - relative h-56 = înălțime fixă 224px
-                - overflow-hidden = cropează imaginea la colțuri rotunjite
-              */}
-              <div className="relative h-56 overflow-hidden">
+              <div className="relative h-48 overflow-hidden">
                 <img
-                  src={feature.image}
-                  alt={feature.title}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  src={features[1].image}
+                  alt={features[1].title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                {/*
-                  🎨 ICON OVERLAY
-                  - Plutește deasupra imaginii
-                  - Fundal semi-transparent pentru lizibilitate
-                */}
-                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm w-16 h-16 rounded-full flex items-center justify-center text-4xl shadow-lg">
-                  {feature.icon}
+                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm w-16 h-16 rounded-xl flex items-center justify-center text-4xl shadow-lg">
+                  {features[1].icon}
                 </div>
               </div>
 
-              {/*
-                📝 TEXT CONTENT
-              */}
-              <div className="p-6 text-center">
-                {/*
-                  📌 TITLU CARD
-                  - text-2xl = 24px
-                  - font-semibold = greutate 600
-                  - mb-3 = spațiu sub titlu
-                */}
-                <h3 className="text-2xl font-semibold text-foreground mb-3">
-                  {feature.title}
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  {features[1].title}
                 </h3>
-
-                {/*
-                  📄 DESCRIERE
-                  - text-gray-600 = gri mediu (contrast bun pe fundal alb)
-                  - leading-relaxed = line-height mai mare pentru lizibilitate
-                */}
-                <p className="text-gray-600 leading-relaxed">
-                  {feature.description}
+                <p className="text-gray-700 leading-relaxed">
+                  {features[1].description}
                 </p>
               </div>
             </div>
-          ))}
+
+            {/* 🔳 CARD MIC 2 - Jos dreapta */}
+            <div
+              className="rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group flex-1"
+              style={{ backgroundColor: features[2].color }}
+            >
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src={features[2].image}
+                  alt={features[2].title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm w-16 h-16 rounded-xl flex items-center justify-center text-4xl shadow-lg">
+                  {features[2].icon}
+                </div>
+              </div>
+
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  {features[2].title}
+                </h3>
+                <p className="text-gray-700 leading-relaxed">
+                  {features[2].description}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
