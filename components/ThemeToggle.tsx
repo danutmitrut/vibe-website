@@ -15,14 +15,18 @@ export default function ThemeToggle() {
     setMounted(true);
     // Citește preferința din localStorage
     const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-    const shouldBeDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+    // DOAR folosește savedTheme, NU detecta automat OS dark mode
+    const shouldBeDark = savedTheme === 'dark';
     setIsDark(shouldBeDark);
 
     if (shouldBeDark) {
       document.documentElement.setAttribute('data-theme', 'dark');
       document.documentElement.classList.add('dark');
+    } else {
+      // Asigură-te că dark mode e complet dezactivat în light mode
+      document.documentElement.removeAttribute('data-theme');
+      document.documentElement.classList.remove('dark');
     }
   }, []);
 
