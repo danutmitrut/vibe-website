@@ -82,7 +82,7 @@ export default function LocatiePage() {
       </section>
 
       {/* INFORMAȚII LOCAȚIE */}
-      <section className="py-16 px-6 bg-white">
+      <section className="py-16 px-6 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
             {/* Informații Contact */}
@@ -94,7 +94,7 @@ export default function LocatiePage() {
               <div className="space-y-6">
                 <div>
                   <h3 className="text-xl font-semibold text-primary mb-2">Adresă</h3>
-                  <p className="text-gray-700">
+                  <p className="text-gray-700 dark:text-gray-300">
                     Strada Cafenelelor, Nr. 42<br />
                     Sector 1, București 010101
                   </p>
@@ -102,7 +102,7 @@ export default function LocatiePage() {
 
                 <div>
                   <h3 className="text-xl font-semibold text-primary mb-2">Program</h3>
-                  <p className="text-gray-700">
+                  <p className="text-gray-700 dark:text-gray-300">
                     Luni - Vineri: 07:00 - 22:00<br />
                     Sâmbătă - Duminică: 08:00 - 23:00
                   </p>
@@ -113,7 +113,7 @@ export default function LocatiePage() {
 
                 <div>
                   <h3 className="text-xl font-semibold text-primary mb-2">Contact</h3>
-                  <p className="text-gray-700">
+                  <p className="text-gray-700 dark:text-gray-300">
                     📞 Telefon: <a href="tel:+40721234567" className="text-primary hover:underline">+40 721 234 567</a><br />
                     ✉️ Email: <a href="mailto:hello@vibecoffee.ro" className="text-primary hover:underline">hello@vibecoffee.ro</a>
                   </p>
@@ -137,13 +137,13 @@ export default function LocatiePage() {
               <h2 className="text-3xl font-bold text-foreground mb-6 flex items-center gap-3">
                 🗺️ Hartă
               </h2>
-              <div className="w-full h-[400px] bg-gray-200 rounded-2xl overflow-hidden">
+              <div className="w-full h-[400px] bg-gray-200 dark:bg-gray-700 rounded-2xl overflow-hidden">
                 {/* Placeholder pentru Google Maps - în producție ar fi un iframe real */}
                 <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/20 to-secondary/20">
                   <div className="text-center">
                     <div className="text-6xl mb-4">🗺️</div>
-                    <p className="text-gray-600 font-medium">Google Maps Embed</p>
-                    <p className="text-gray-500 text-sm mt-2">
+                    <p className="text-gray-600 dark:text-gray-300 font-medium">Google Maps Embed</p>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm mt-2">
                       (În producție: iframe cu Google Maps)
                     </p>
                   </div>
@@ -157,7 +157,7 @@ export default function LocatiePage() {
             <h2 className="text-4xl font-bold text-foreground text-center mb-4">
               📸 Galerie <span className="text-primary">Foto</span>
             </h2>
-            <p className="text-xl text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 dark:text-gray-400 text-center mb-12 max-w-2xl mx-auto">
               Descoperă atmosfera unică a cafenelei noastre
             </p>
 
@@ -199,7 +199,7 @@ export default function LocatiePage() {
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Te așteptăm cu drag! ☕
             </h2>
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
               Vino să descoperi cafeaua perfectă într-un ambient relaxant
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
