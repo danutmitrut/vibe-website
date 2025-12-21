@@ -273,3 +273,8 @@ html.lenis-smooth {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+/* Dark mode pentru Features cards - suprascrie inline styles */
+[data-theme='dark'] .features-card {
+  background-color: #374151 !important; /* gray-700 */
+}

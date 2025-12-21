@@ -62,14 +62,14 @@ export default function Features() {
   ];
 
   return (
-    <section className="py-24 px-6 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800" ref={elementRef}>
+    <section className="py-24 px-6 bg-gradient-to-b from-white to-gray-50" ref={elementRef}>
       <div className="max-w-7xl mx-auto">
         {/* 📝 TITLU SECȚIUNE */}
         <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-4">
             De ce <span className="text-primary">Vibe Coffee</span>?
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Experiență unică, ingrediente premium, atmosferă perfectă
           </p>
         </div>
@@ -78,9 +78,10 @@ export default function Features() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-auto md:h-[600px]">
           {/* 🔲 CARD MARE - Stânga (prima poziție) */}
           <div
-            className={`rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 hover:-translate-y-2 group bg-[#F5E6D3] dark:bg-gray-700 ${
+            className={`features-card rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 hover:-translate-y-2 group ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
             }`}
+            style={{ backgroundColor: features[0].color }}
           >
             <div className="relative h-64 md:h-1/2 overflow-hidden">
               <img
@@ -92,16 +93,16 @@ export default function Features() {
                   transition: 'transform 0.1s ease-out'
                 }}
               />
-              <div className="absolute top-6 left-6 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm w-20 h-20 rounded-2xl flex items-center justify-center text-5xl shadow-xl">
+              <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-sm w-20 h-20 rounded-2xl flex items-center justify-center text-5xl shadow-xl">
                 {features[0].icon}
               </div>
             </div>
 
             <div className="p-8 md:p-10 h-64 md:h-1/2 flex flex-col justify-center">
-              <h3 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+              <h3 className="text-4xl font-bold text-gray-900 mb-4">
                 {features[0].title}
               </h3>
-              <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+              <p className="text-lg text-gray-700 leading-relaxed">
                 {features[0].description}
               </p>
             </div>
@@ -111,10 +112,11 @@ export default function Features() {
           <div className="flex flex-col gap-6">
             {/* 🔳 CARD MIC 1 - Sus dreapta */}
             <div
-              className={`rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 hover:-translate-y-2 group flex-1 bg-[#FFF8E7] dark:bg-gray-700 ${
+              className={`features-card rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 hover:-translate-y-2 group flex-1 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
               }`}
               style={{
+                backgroundColor: features[1].color,
                 transitionDelay: isVisible ? '200ms' : '0ms'
               }}
             >
@@ -128,16 +130,16 @@ export default function Features() {
                     transition: 'transform 0.1s ease-out'
                   }}
                 />
-                <div className="absolute top-4 left-4 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm w-16 h-16 rounded-xl flex items-center justify-center text-4xl shadow-lg">
+                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm w-16 h-16 rounded-xl flex items-center justify-center text-4xl shadow-lg">
                   {features[1].icon}
                 </div>
               </div>
 
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">
                   {features[1].title}
                 </h3>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                <p className="text-gray-700 leading-relaxed">
                   {features[1].description}
                 </p>
               </div>
@@ -145,10 +147,11 @@ export default function Features() {
 
             {/* 🔳 CARD MIC 2 - Jos dreapta */}
             <div
-              className={`rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 hover:-translate-y-2 group flex-1 bg-[#D4A574] dark:bg-gray-700 ${
+              className={`features-card rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 hover:-translate-y-2 group flex-1 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
               }`}
               style={{
+                backgroundColor: features[2].color,
                 transitionDelay: isVisible ? '400ms' : '0ms'
               }}
             >
@@ -162,16 +165,16 @@ export default function Features() {
                     transition: 'transform 0.1s ease-out'
                   }}
                 />
-                <div className="absolute top-4 left-4 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm w-16 h-16 rounded-xl flex items-center justify-center text-4xl shadow-lg">
+                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm w-16 h-16 rounded-xl flex items-center justify-center text-4xl shadow-lg">
                   {features[2].icon}
                 </div>
               </div>
 
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">
                   {features[2].title}
                 </h3>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                <p className="text-gray-700 leading-relaxed">
                   {features[2].description}
                 </p>
               </div>
