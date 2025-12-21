@@ -128,7 +128,7 @@ export default function ChatWidget() {
     <div className="fixed bottom-6 right-6 z-50">
       {/* 💬 CHAT WINDOW */}
       {isOpen && (
-        <div className="mb-4 w-96 h-[600px] bg-white rounded-3xl shadow-2xl flex flex-col overflow-hidden border border-gray-200">
+        <div className="mb-4 w-96 h-[600px] bg-white dark:bg-gray-900 rounded-3xl shadow-2xl flex flex-col overflow-hidden border border-gray-200 dark:border-gray-700">
           {/* HEADER */}
           <div className="bg-gradient-to-r from-[#14B8A6] to-[#0D9488] text-white p-6 flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -151,7 +151,7 @@ export default function ChatWidget() {
           </div>
 
           {/* MESSAGES CONTAINER */}
-          <div className="flex-1 overflow-y-auto p-6 space-y-4 bg-gray-50">
+          <div className="flex-1 overflow-y-auto p-6 space-y-4 bg-gray-50 dark:bg-gray-800">
             {messages.map((message) => (
               <div key={message.id}>
                 {/* MESSAGE BUBBLE */}
@@ -162,7 +162,7 @@ export default function ChatWidget() {
                     className={`max-w-[80%] rounded-2xl px-4 py-3 ${
                       message.sender === 'user'
                         ? 'bg-[#14B8A6] text-white rounded-br-none'
-                        : 'bg-white text-gray-800 rounded-bl-none shadow-sm'
+                        : 'bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded-bl-none shadow-sm'
                     }`}
                   >
                     <p className="text-sm whitespace-pre-line">{message.text}</p>
@@ -176,7 +176,7 @@ export default function ChatWidget() {
                       <button
                         key={index}
                         onClick={() => handleQuickReply(reply)}
-                        className="px-4 py-2 bg-white border-2 border-[#14B8A6] text-[#14B8A6] rounded-full text-sm font-semibold hover:bg-[#14B8A6] hover:text-white transition-all duration-300"
+                        className="px-4 py-2 bg-white dark:bg-gray-700 border-2 border-[#14B8A6] text-[#14B8A6] dark:text-[#14B8A6] rounded-full text-sm font-semibold hover:bg-[#14B8A6] hover:text-white transition-all duration-300"
                       >
                         {reply}
                       </button>
@@ -189,7 +189,7 @@ export default function ChatWidget() {
             {/* TYPING INDICATOR */}
             {isTyping && (
               <div className="flex justify-start">
-                <div className="bg-white rounded-2xl rounded-bl-none px-4 py-3 shadow-sm">
+                <div className="bg-white dark:bg-gray-700 rounded-2xl rounded-bl-none px-4 py-3 shadow-sm">
                   <div className="flex space-x-2">
                     <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
                     <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
@@ -203,7 +203,7 @@ export default function ChatWidget() {
           </div>
 
           {/* INPUT CONTAINER */}
-          <div className="p-4 bg-white border-t border-gray-200">
+          <div className="p-4 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
             <div className="flex gap-2 items-center">
               <input
                 ref={inputRef}
@@ -212,7 +212,7 @@ export default function ChatWidget() {
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Scrie un mesaj..."
-                className="flex-1 px-4 py-3 rounded-full border-2 border-gray-200 focus:border-[#14B8A6] focus:outline-none text-sm text-gray-900 placeholder:text-gray-400"
+                className="flex-1 px-4 py-3 rounded-full border-2 border-gray-200 dark:border-gray-600 focus:border-[#14B8A6] focus:outline-none text-sm text-gray-900 dark:text-gray-100 dark:bg-gray-800 placeholder:text-gray-400 dark:placeholder:text-gray-500"
               />
               <button
                 onClick={() => handleSendMessage()}
