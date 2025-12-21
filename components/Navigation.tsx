@@ -7,6 +7,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import ThemeToggle from './ThemeToggle';
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -46,7 +47,7 @@ export default function Navigation() {
         </Link>
 
         {/* Menu Links */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6">
           <a
             href="#menu"
             className={`link-underline font-semibold transition-colors ${
@@ -63,6 +64,10 @@ export default function Navigation() {
           >
             Locație
           </a>
+
+          {/* DARK MODE TOGGLE */}
+          <ThemeToggle />
+
           <a
             href="/rezervari"
             className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
