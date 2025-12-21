@@ -9,6 +9,7 @@
  */
 
 // Importăm toate componentele create
+import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
 import Features from '@/components/Features';
 import Menu from '@/components/Menu';
@@ -26,6 +27,7 @@ export default function Home() {
       {/*
         🎯 STRUCTURA PAGINII
         Ordinea componentelor:
+        0. Navigation (sticky) - Navigare persistentă modernă
         1. Hero (full screen) - Prima impresie
         2. Features (3 carduri) - Ce oferim
         3. Menu (meniu complet cu produse) - Ce vindem
@@ -33,6 +35,7 @@ export default function Home() {
         5. Footer (contact + social) - Info final
       */}
 
+      <Navigation />
       <Hero />
       <Features />
       <Menu />
