@@ -24,18 +24,24 @@ export default function Hero() {
           loop
           muted
           playsInline
+          preload="auto"
+          poster="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1920&auto=format&fit=crop"
           className="absolute inset-0 w-full h-full object-cover"
+          onLoadedData={(e) => {
+            const video = e.currentTarget;
+            video.playbackRate = 0.5; // Redare la 50% din viteza normală (ultra-lent, cinematic)
+            video.play().catch(error => {
+              console.log('Video autoplay prevented:', error);
+            });
+          }}
         >
+          {/* Video local pentru încărcare rapidă și sigură */}
           <source
-            src="https://videos.pexels.com/video-files/3843/3843-hd_1920_1080_30fps.mp4"
+            src="/hero-coffee.mp4"
             type="video/mp4"
           />
-          {/* Fallback image pentru browsere care nu suportă video */}
-          <img
-            src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1920&auto=format&fit=crop"
-            alt="Coffee background"
-            className="w-full h-full object-cover"
-          />
+          {/* Fallback pentru browsere vechi */}
+          Your browser does not support the video tag.
         </video>
         {/* Overlay semi-transparent pentru contrast */}
         <div className="absolute inset-0 bg-black/50"></div>
