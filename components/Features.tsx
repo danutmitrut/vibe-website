@@ -1,9 +1,14 @@
 /**
  * ⭐ FEATURES SECTION - Bento Grid Layout (Modern Asimetric)
- * MODERNIZAT: Layout inspirat Apple cu card mare + 2 mici
+ * MODERNIZAT: Layout inspirat Apple cu card mare + 2 mici + scroll animations
  */
 
+'use client';
+
+import { useScrollAnimation } from '@/lib/hooks/useScrollAnimation';
+
 export default function Features() {
+  const { elementRef, isVisible } = useScrollAnimation(0.15);
   const features = [
     {
       icon: '☕',
@@ -32,7 +37,7 @@ export default function Features() {
   ];
 
   return (
-    <section className="py-24 px-6 bg-gradient-to-b from-white to-gray-50">
+    <section className="py-24 px-6 bg-gradient-to-b from-white to-gray-50" ref={elementRef}>
       <div className="max-w-7xl mx-auto">
         {/* 📝 TITLU SECȚIUNE */}
         <div className="text-center mb-16">
@@ -48,7 +53,9 @@ export default function Features() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-auto md:h-[600px]">
           {/* 🔲 CARD MARE - Stânga (prima poziție) */}
           <div
-            className="rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group"
+            className={`rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 hover:-translate-y-2 group ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+            }`}
             style={{ backgroundColor: features[0].color }}
           >
             <div className="relative h-64 md:h-1/2 overflow-hidden">
@@ -76,8 +83,13 @@ export default function Features() {
           <div className="flex flex-col gap-6">
             {/* 🔳 CARD MIC 1 - Sus dreapta */}
             <div
-              className="rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group flex-1"
-              style={{ backgroundColor: features[1].color }}
+              className={`rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 hover:-translate-y-2 group flex-1 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+              }`}
+              style={{
+                backgroundColor: features[1].color,
+                transitionDelay: isVisible ? '200ms' : '0ms'
+              }}
             >
               <div className="relative h-48 overflow-hidden">
                 <img
@@ -102,8 +114,13 @@ export default function Features() {
 
             {/* 🔳 CARD MIC 2 - Jos dreapta */}
             <div
-              className="rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group flex-1"
-              style={{ backgroundColor: features[2].color }}
+              className={`rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 hover:-translate-y-2 group flex-1 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+              }`}
+              style={{
+                backgroundColor: features[2].color,
+                transitionDelay: isVisible ? '400ms' : '0ms'
+              }}
             >
               <div className="relative h-48 overflow-hidden">
                 <img

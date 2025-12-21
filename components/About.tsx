@@ -1,75 +1,49 @@
 /**
- * 📖 ABOUT SECTION - Despre cafenea/poveste
- *
- * Pentru cursanți:
- * - Layout cu 2 coloane: imagine stânga, text dreapta
- * - Pe mobile: stack vertical (imagine deasupra, text dedesubt)
- * - Responsive cu Tailwind (grid + breakpoints)
+ * 📖 ABOUT SECTION - Cu scroll animations
+ * MODERNIZAT: Intersection Observer pentru fade-in effects
  */
 
+'use client';
+
+import { useScrollAnimation } from '@/lib/hooks/useScrollAnimation';
+
 export default function About() {
+  const { elementRef, isVisible } = useScrollAnimation(0.2);
+
   return (
-    <section className="py-20 px-6 bg-white/50">
-      {/*
-        📦 CONTAINER
-      */}
+    <section className="py-20 px-6 bg-white/50" ref={elementRef}>
       <div className="max-w-7xl mx-auto">
-        {/*
-          🎯 GRID LAYOUT
-          - grid = CSS Grid
-          - grid-cols-1 = 1 coloană pe mobile (imagine peste text)
-          - md:grid-cols-2 = 2 coloane pe desktop (imagine + text alături)
-          - gap-12 = spațiu între coloane (48px)
-          - items-center = aliniază vertical la centru
-        */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          {/*
-            🖼️ COLOANA IMAGINE
-            - order-2 md:order-1 = pe mobile e a 2-a (după text), pe desktop prima
-          */}
-          <div className="order-2 md:order-1">
-            <div className="rounded-3xl overflow-hidden shadow-2xl">
-              {/*
-                IMAGINE UNSPLASH
-                - w=800 = lățime 800px (destul pentru display retina)
-                - aspect-video = păstrează ratio 16:9
-                - object-cover = cropează imagine să umple containerul
-              */}
+          {/* IMAGINE - Slide in from left */}
+          <div
+            className={`order-2 md:order-1 transition-all duration-1000 ${
+              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
+            }`}
+          >
+            <div className="rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow duration-500">
               <img
                 src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=800&auto=format&fit=crop"
                 alt="Interior cafenea modern și primitor"
-                className="w-full h-auto object-cover"
+                className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700"
               />
             </div>
           </div>
 
-          {/*
-            📝 COLOANA TEXT
-            - order-1 md:order-2 = pe mobile e prima, pe desktop a 2-a
-          */}
-          <div className="order-1 md:order-2">
-            {/*
-              🏷️ BADGE/TAG
-              - inline-block = elementul ocupă doar spațiul necesar
-              - px-4 py-2 = padding (16px orizontal, 8px vertical)
-            */}
+          {/* TEXT - Slide in from right */}
+          <div
+            className={`order-1 md:order-2 transition-all duration-1000 delay-200 ${
+              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
+            }`}
+          >
             <div className="inline-block px-4 py-2 bg-secondary/10 text-secondary font-semibold rounded-full mb-4">
               Despre Noi
             </div>
 
-            {/*
-              🎯 TITLU
-            */}
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
               Pasiunea pentru cafea,{' '}
               <span className="text-primary">din 2020</span>
             </h2>
 
-            {/*
-              📄 PARAGRAFE
-              - mb-4 = spațiu între paragrafe (16px)
-              - leading-relaxed = line-height mai mare (1.625)
-            */}
             <p className="text-lg text-gray-700 mb-4 leading-relaxed">
               Vibe Coffee a început din dorința de a aduce experiența autentică
               a cafelei de specialitate în inima orașului. Fiecare ceașcă este
@@ -82,10 +56,7 @@ export default function About() {
               scoate în evidență notele unice de aromă.
             </p>
 
-            {/*
-              ✅ LISTA BENEFICII
-              - space-y-3 = spațiu vertical între elemente (12px)
-            */}
+            {/* LISTA cu stagger animation */}
             <ul className="space-y-3 mb-8">
               {[
                 'Boabe proaspăt prăjite săptămânal',
@@ -93,8 +64,13 @@ export default function About() {
                 'Produse locale și sustenabile',
                 'WiFi gratuit & loc de muncă',
               ].map((item, index) => (
-                <li key={index} className="flex items-center text-gray-700">
-                  {/* SVG CHECKMARK */}
+                <li
+                  key={index}
+                  className={`flex items-center text-gray-700 transition-all duration-500 ${
+                    isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
+                  }`}
+                  style={{ transitionDelay: `${400 + index * 100}ms` }}
+                >
                   <svg
                     className="w-5 h-5 text-primary mr-3 flex-shrink-0"
                     fill="currentColor"
@@ -111,10 +87,6 @@ export default function About() {
               ))}
             </ul>
 
-            {/*
-              🔘 CTA BUTTON
-              - Link către pagina de rezervări
-            */}
             <a
               href="/rezervari"
               className="inline-block px-8 py-4 bg-primary hover:bg-primary-dark text-white font-semibold rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl"
