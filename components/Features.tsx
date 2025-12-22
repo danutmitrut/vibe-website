@@ -36,7 +36,6 @@ export default function Features() {
   }, [elementRef]);
   const features = [
     {
-      icon: '☕',
       title: 'Cafea de Specialitate',
       description:
         'Boabe proaspăt prăjite din plantații selectate, pentru aroma perfectă în fiecare ceașcă',
@@ -44,7 +43,6 @@ export default function Features() {
       color: '#F5E6D3', // Bej cald
     },
     {
-      icon: '🥐',
       title: 'Patiserie Artizanală',
       description:
         'Deserturi și produse de patiserie pregătite zilnic cu ingrediente premium',
@@ -52,7 +50,6 @@ export default function Features() {
       color: '#FFF8E7', // Crem
     },
     {
-      icon: '🪴',
       title: 'Ambient Relaxant',
       description:
         'Spațiu modern și primitor, perfect pentru lucru, studiu sau întâlniri',
@@ -93,9 +90,6 @@ export default function Features() {
                   transition: 'transform 0.1s ease-out'
                 }}
               />
-              <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-sm w-20 h-20 rounded-2xl flex items-center justify-center text-5xl shadow-xl">
-                {features[0].icon}
-              </div>
             </div>
 
             <div className="p-8 md:p-10 h-64 md:h-1/2 flex flex-col justify-center">
@@ -130,9 +124,6 @@ export default function Features() {
                     transition: 'transform 0.1s ease-out'
                   }}
                 />
-                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm w-16 h-16 rounded-xl flex items-center justify-center text-4xl shadow-lg">
-                  {features[1].icon}
-                </div>
               </div>
 
               <div className="p-6">
@@ -165,9 +156,6 @@ export default function Features() {
                     transition: 'transform 0.1s ease-out'
                   }}
                 />
-                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm w-16 h-16 rounded-xl flex items-center justify-center text-4xl shadow-lg">
-                  {features[2].icon}
-                </div>
               </div>
 
               <div className="p-6">

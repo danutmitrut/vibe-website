@@ -385,12 +385,12 @@ export default function Menu() {
           <div key={category} id={`category-${category}`} className="mb-16 scroll-mt-48">
             {/* TITLU CATEGORIE */}
             <h3 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-8 border-b-2 border-primary/20 dark:border-primary/30 pb-3">
-              {category === 'Espresso' && '☕ Espresso Classics'}
-              {category === 'Specialty' && '🌟 Specialty Coffee'}
-              {category === 'Vegan' && '🌱 Opțiuni Vegane'}
-              {category === 'Cold' && '❄️ Cold Brew & Iced'}
-              {category === 'Alternative' && '🫖 Băuturi Alternative'}
-              {category === 'Pastry' && '🥐 Patiserie Artizanală'}
+              {category === 'Espresso' && 'Espresso Classics'}
+              {category === 'Specialty' && 'Specialty Coffee'}
+              {category === 'Vegan' && 'Opțiuni Vegane'}
+              {category === 'Cold' && 'Cold Brew & Iced'}
+              {category === 'Alternative' && 'Băuturi Alternative'}
+              {category === 'Pastry' && 'Patiserie Artizanală'}
             </h3>
 
             {/* GRID PRODUSE */}
@@ -416,7 +416,7 @@ export default function Menu() {
                           if (parent && !parent.querySelector('.fallback-icon')) {
                             const fallback = document.createElement('div');
                             fallback.className = 'fallback-icon absolute inset-0 flex items-center justify-center text-6xl';
-                            fallback.textContent = '☕';
+                            fallback.textContent = 'Coffee';
                             parent.appendChild(fallback);
                           }
                         }}
@@ -424,7 +424,7 @@ export default function Menu() {
                       {/* BADGE VEGAN */}
                       {item.vegan && (
                         <div className="absolute top-3 right-3 bg-primary text-white px-3 py-1 rounded-full text-xs font-semibold">
-                          🌱 Vegan
+                          Vegan
                         </div>
                       )}
                     </div>
@@ -462,7 +462,7 @@ export default function Menu() {
         <div className="mt-16 text-center">
           <div className="inline-block glass rounded-2xl p-8">
             <p className="text-gray-700 dark:text-gray-300 mb-4">
-              <span className="font-semibold">💡 Personalizează-ți băutura:</span>
+              <span className="font-semibold">Personalizează-ți băutura:</span>
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-600 dark:text-gray-400">
               <div>

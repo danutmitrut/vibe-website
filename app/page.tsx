@@ -43,7 +43,7 @@ export default function Home() {
       <Footer />
 
       {/*
-        💡 PENTRU CURSANȚI - Explicații concepte:
+        PENTRU CURSANȚI - Explicații concepte:
 
         1. COMPONENTE = bucăți reutilizabile de UI
            - <Hero /> = componenta Hero (definită în components/Hero.tsx)

@@ -27,7 +27,7 @@ export default function ChatWidget() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: 'Salut! ☕ Sunt Vibe, barista ta virtuală. Ce te-ar face fericit astăzi?',
+      text: 'Salut! Sunt Vibe, asistentul tău virtual. Cu ce te pot ajuta astăzi?',
       sender: 'bot',
       timestamp: new Date(),
       quickReplies: ['Vreau cafea!', 'Fac o rezervare', 'Văd meniul', 'Info despre voi'],
@@ -132,12 +132,15 @@ export default function ChatWidget() {
           {/* HEADER */}
           <div className="bg-gradient-to-r from-[#14B8A6] to-[#0D9488] text-white p-6 flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-2xl">
-                ☕
+              <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z" />
+                  <path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z" />
+                </svg>
               </div>
               <div>
                 <h3 className="font-bold text-lg">Vibe</h3>
-                <p className="text-sm text-white/80">Barista virtuală • Online</p>
+                <p className="text-sm text-white/80">Asistent virtual • Online</p>
               </div>
             </div>
             <button
@@ -238,7 +241,10 @@ export default function ChatWidget() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
           </svg>
         ) : (
-          '☕'
+          <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z" />
+            <path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z" />
+          </svg>
         )}
       </button>
 
