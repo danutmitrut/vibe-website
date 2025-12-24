@@ -9,15 +9,31 @@ import { useEffect, useState } from 'react';
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
+  const [parallaxOffset, setParallaxOffset] = useState(0);
 
   useEffect(() => {
     // Declanșează animația după mount
     setIsVisible(true);
   }, []);
 
+  // Parallax effect pe video background
+  useEffect(() => {
+    let rafId: number;
+
+    const handleParallax = () => {
+      const scrollY = window.scrollY;
+      const offset = scrollY * 0.5; // Parallax speed: 50% of scroll
+      setParallaxOffset(offset);
+      rafId = requestAnimationFrame(handleParallax);
+    };
+
+    rafId = requestAnimationFrame(handleParallax);
+    return () => cancelAnimationFrame(rafId);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* 🎬 BACKGROUND VIDEO - Full Screen Loop */}
+      {/* 🎬 BACKGROUND VIDEO - Full Screen Loop with Parallax */}
       <div className="absolute inset-0 z-0">
         <video
           autoPlay
@@ -27,6 +43,10 @@ export default function Hero() {
           preload="auto"
           poster="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1920&auto=format&fit=crop"
           className="absolute inset-0 w-full h-full object-cover"
+          style={{
+            transform: `translateY(${parallaxOffset}px)`,
+            transition: 'transform 0.1s ease-out'
+          }}
           onLoadedData={(e) => {
             const video = e.currentTarget;
             video.playbackRate = 0.5; // Redare la 50% din viteza normală (ultra-lent, cinematic)

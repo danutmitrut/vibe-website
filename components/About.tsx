@@ -12,21 +12,23 @@ export default function About() {
   const { elementRef, isVisible } = useScrollAnimation(0.2);
   const [parallaxOffset, setParallaxOffset] = useState(0);
 
-  // Efect parallax pe imagine
+  // Efect parallax pe imagine - compatibil cu Lenis smooth scroll
   useEffect(() => {
-    const handleScroll = () => {
-      const scrolled = window.scrollY;
+    let rafId: number;
+
+    const handleParallax = () => {
       const element = elementRef.current;
       if (element) {
         const rect = element.getBoundingClientRect();
-        const elementTop = rect.top + scrolled;
-        const offset = (scrolled - elementTop) * 0.3; // Factor de parallax
+        const scrollProgress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+        const offset = scrollProgress * 100 - 50; // Parallax range: -50px to +50px
         setParallaxOffset(offset);
       }
+      rafId = requestAnimationFrame(handleParallax);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    rafId = requestAnimationFrame(handleParallax);
+    return () => cancelAnimationFrame(rafId);
   }, [elementRef]);
 
   return (
