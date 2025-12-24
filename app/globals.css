@@ -4,8 +4,8 @@
 @variant dark (&:where(.dark, .dark *));
 
 /*
-  🎨 VIBE COFFEE SHOP - MODERN PREMIUM DESIGN SYSTEM
-  - Tipografie: Playfair Display (H1, H2) + Plus Jakarta Sans (H3-H6, UI) + Inter (body)
+  🎨 VIBE COFFEE SHOP - MODERN CLEAN DESIGN SYSTEM
+  - Tipografie: Plus Jakarta Sans (H1-H6, UI) + Inter (body) - 100% Sans-Serif
   - Primary: Teal (#14B8A6) - Fresh, modern
   - Secondary: Orange (#F97316) - Warm, energetic
 */
@@ -62,7 +62,6 @@
   --color-secondary-dark: var(--secondary-dark);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-display: var(--font-display);
   --font-heading: var(--font-heading);
   --font-body: var(--font-inter);
 }
@@ -77,31 +76,24 @@ body {
   min-height: 100vh;
 }
 
-/* TIPOGRAFIE HIBRIDĂ - Modern Premium */
+/* TIPOGRAFIE 100% SANS-SERIF - Modern Clean */
 
-/* H1, H2 - Playfair Display (serif elegant pentru impact vizual) */
-h1, h2 {
-  font-family: var(--font-display), Georgia, serif;
-  font-weight: 600;
-  line-height: 1.15;
-  letter-spacing: -0.02em; /* Tracking subtil pentru modernitate */
+/* TOATE titlurile folosesc Plus Jakarta Sans (sans-serif modern) */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em; /* Tracking subtil pentru aspect modern */
 }
 
 h1 {
   font-size: 64px;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 h2 {
   font-size: 48px;
-  font-weight: 600;
-}
-
-/* H3-H6 - Plus Jakarta Sans (sans-serif modern pentru UI) */
-h3, h4, h5, h6 {
-  font-family: var(--font-heading), -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 700;
-  line-height: 1.3;
 }
 
 h3 {

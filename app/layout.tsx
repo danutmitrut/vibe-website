@@ -1,24 +1,16 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans, Playfair_Display } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import ChatWidget from "@/components/ChatWidget";
 import Preloader from "@/components/Preloader";
 import SmoothScroll from "@/components/SmoothScroll";
 
-// 🎨 TIPOGRAFIE HIBRIDĂ - MODERN PREMIUM
-// Playfair Display - Serif elegant doar pentru hero headlines (H1, H2)
-const playfair = Playfair_Display({
-  variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  display: "swap",
-});
-
-// Plus Jakarta Sans - Sans-serif modern pentru subtitluri și UI (H3-H6, meniuri, butoane)
+// 🎨 TIPOGRAFIE 100% SANS-SERIF - MODERN CLEAN
+// Plus Jakarta Sans - Sans-serif modern pentru TOATE titlurile (H1-H6)
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["400", "600", "700", "800"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -72,7 +64,7 @@ export default function RootLayout({
   return (
     <html lang="ro">
       <body
-        className={`${playfair.variable} ${plusJakarta.variable} ${inter.variable} antialiased`}
+        className={`${plusJakarta.variable} ${inter.variable} antialiased`}
       >
         <Preloader />
         <SmoothScroll />
