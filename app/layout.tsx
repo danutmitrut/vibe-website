@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import ChatWidget from "@/components/ChatWidget";
 import Preloader from "@/components/Preloader";
 import SmoothScroll from "@/components/SmoothScroll";
 
 // 🎨 TIPOGRAFIE MODERNĂ
-// Playfair Display - Serif elegant pentru titluri
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+// Plus Jakarta Sans - Sans-serif modern pentru titluri
+const plusJakarta = Plus_Jakarta_Sans({
+  variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["400", "700", "900"],
+  weight: ["400", "600", "700", "800"],
   display: "swap",
 });
 
@@ -64,7 +64,7 @@ export default function RootLayout({
   return (
     <html lang="ro">
       <body
-        className={`${playfair.variable} ${inter.variable} antialiased`}
+        className={`${plusJakarta.variable} ${inter.variable} antialiased`}
       >
         <Preloader />
         <SmoothScroll />

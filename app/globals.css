@@ -5,7 +5,7 @@
 
 /*
   🎨 VIBE COFFEE SHOP - MODERN DESIGN SYSTEM
-  - Tipografie: Playfair Display (titluri) + Inter (text)
+  - Tipografie: Plus Jakarta Sans (titluri) + Inter (text)
   - Primary: Teal (#14B8A6) - Fresh, modern
   - Secondary: Orange (#F97316) - Warm, energetic
 */
@@ -62,7 +62,6 @@
   --color-secondary-dark: var(--secondary-dark);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-heading: var(--font-playfair);
   --font-body: var(--font-inter);
 }
 
@@ -76,9 +75,9 @@ body {
   min-height: 100vh;
 }
 
-/* Titluri folosesc Playfair Display (serif elegant) */
+/* Titluri folosesc Plus Jakarta Sans (sans-serif modern) */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-playfair), Georgia, serif;
+  font-family: var(--font-heading), -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 700;
   line-height: 1.2;
 }
